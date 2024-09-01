@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
               closedColumn.appendChild(taskCard);
           }
       });
-
       showMoreBtn.style.display = tasks.length > 5 ? 'block' : 'none';
   }
 

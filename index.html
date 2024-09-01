@@ -9,6 +9,7 @@
 <body>
     <div class="container">
         <h1>ToDo List Scloud</h1>
+        <h2>Текущие задачи</h2>
         <div class="task-stats">
             <div class="status-count">
                 <span>Открыто - <span id="open-count">0</span></span>
@@ -16,8 +17,8 @@
                 <span>Закрыто - <span id="closed-count">0</span></span>
             </div>
             <div class="add-task">
-                <input type="text" id="task-input" placeholder="Добавить задачу">
                 <button id="add-btn">+</button>
+                <input type="text" id="task-input" placeholder="Добавить задачу">
             </div>
         </div>
         <div class="task-table">
@@ -36,17 +37,19 @@
         </div>
         <div class="task-board">
             <h2>Доска задач</h2>
-            <div class="board-column">
-                <h3>Открыто</h3>
-                <div id="open-column"></div>
-            </div>
-            <div class="board-column">
-                <h3>В работе</h3>
-                <div id="in-progress-column"></div>
-            </div>
-            <div class="board-column">
-                <h3>Закрыто</h3>
-                <div id="closed-column"></div>
+            <div class="board-columns">
+                <div class="board-column">
+                    <h3>Открыто</h3>
+                    <div id="open-column"></div>
+                </div>
+                <div class="board-column">
+                    <h3>В работе</h3>
+                    <div id="in-progress-column"></div>
+                </div>
+                <div class="board-column">
+                    <h3>Закрыто</h3>
+                    <div id="closed-column"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -66,4 +69,8 @@
 
     <script src="script.js"></script>
 </body>
+
+<footer>
+    <p></p>
+</footer>
 </html>

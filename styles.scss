@@ -1,118 +1,248 @@
-// Переменные
-$primary-color: #333;
-$secondary-color: #666;
-$background-color: #f9f9f9;
-$border-color: #ddd;
-$padding: 20px;
-
-// Общие
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  font-family: Montserrat, sans-serif;
-  background-color: $background-color;
+  min-height: 100vh;
+  position: relative;
 }
 
+// Основной контейнер
 .container {
-  max-width: 922px;
-  height: 790px;
-  gap: 48px;
-  opacity: 0px;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  font-family: 'Arial', sans-serif;
 
-  margin: 40px auto;
-  padding: $padding;
-  background-color: #fff;
-  border: 1px solid $border-color;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  gap: 16px;
+  border-radius: 24px 24px 24px 24px;
+  opacity: 0px;
 }
 
-// Задачи
+// Заголовок
+h1 {
+  text-align: center;
+  color: #3d3d3d;
+  margin-bottom: 30px;
+
+  width: 1202px;
+  height: 40px;
+  top: 64px;
+  left: 360px;
+  gap: 0px;
+  opacity: 0px;
+}
+h2 {
+  font-family: PT Sans Caption;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: left;
+
+  width: 204px;
+  height: 32px;
+  top: 40px;
+  left: 24px;
+  gap: 0px;
+  opacity: 0px;
+  margin: 0; 
+  align-self: flex-start; 
+  margin-left: 5px;
+}
+
+// Task stats
 .task-stats {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 20px;
-}
+  margin-top: 20px;
+  
+  .status-count {
+      display: flex;
+      gap: 20px;
 
-.status-count {
-  span {
-    margin-right: 20px;
+      span {
+          text-align: center;
+          background-color: #ffffff;
+          margin-bottom: 15px;
+          font-weight: bold;
+          color: #333;
+          width: 130px;
+  
+          font-family: PT Sans Caption;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 24px;
+          text-align: center;
+
+  
+          top: 88px;
+          padding: 5px 24px 5px 24px;
+          gap: 0px;
+          border-radius: 39px;
+          opacity: 0px;
+      }
+  }
+  
+  .add-task {
+      display: flex;
+      align-items: center;
+      
+      input {
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        width: 300px;
+        margin-right: 10px;
+        padding-left: 15px;
+        outline: none;
+      }
+      
+      button {
+          background-color: #f86f39;
+          border: none;
+          padding: 14px 18px;
+          border-radius: 50%;
+          color: white;
+          font-size: 14px;
+          cursor: pointer;
+          margin-right: 10px;
+      }
   }
 }
 
-.add-task {
-  input[type="text"] {
-    width: 200px;
-    height: 30px;
-    padding: 10px;
-    border: 1px solid $border-color;
+// Task table
+.task-table {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 40px;
+  
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      
+      thead {
+          background-color: #ececec;
+          
+          th {
+              padding: 15px;
+              text-align: left;
+              font-weight: bold;
+              color: #333;
+          }
+      }
+      
+      tbody {
+          tr {
+              td {
+                  padding: 15px;
+                  border-bottom: 1px solid #ddd;
+              }
+              
+              &:last-child {
+                  td {
+                      border-bottom: none;
+                  }
+              }
+          }
+      }
   }
 
-  button {
-    height: 30px;
+  .task-table button {
+    background-color: #4CAF50;
+    color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: $primary-color;
-    color: #fff;
     cursor: pointer;
+  }
+
+  .task-table button:hover {
+      background-color: #3e8e41;
+  }
+  
+  #show-more {
+      width: 100%;
+      padding: 15px;
+      background-color: #f86f39;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
   }
 }
 
-// Таблица задач
-.task-table {
-  margin-bottom: 20px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 10px;
-  border: 1px solid $border-color;
-}
-
-th {
-  background-color: $primary-color;
-  color: #fff;
-}
-
-#show-more {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: $primary-color;
-  color: #fff;
-  cursor: pointer;
-}
-
-// Доска задач
+// Task board
 .task-board {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    font-family: PT Sans Caption;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    text-align: left;
+
+    width: 204px;
+    height: 32px;
+    top: 40px;
+    left: 24px;
+    gap: 0px;
+    opacity: 0px;
+    margin: 0; 
+    align-self: flex-start; 
+    margin-left: 5px;
+  }
+  
+  .board-columns{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  
+    .board-column {
+      padding: 20px;
+      width: 30%;
+        
+      h3 {
+        text-align: center;
+        background-color: #ececec;
+        margin-bottom: 15px;
+        font-weight: bold;
+        color: #333;
+        width: 90px;
+
+        font-family: PT Sans Caption;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 28px;
+        text-align: center;
+
+        top: 88px;
+        padding: 5px 24px 5px 24px;
+        gap: 0px;
+        border-radius: 39px;
+        opacity: 0px;
+      }
+      
+      div {
+        padding: 16px 0px 0px 0px;
+        gap: 16px;
+        border-radius: 24px 24px 24px 24px;
+        opacity: 0px;
+
+        background: rgb(255, 255, 255);
+
+        padding: 20px;
+      }
+    }
+  }
 }
 
-.board-column {
-  width: 30%;
-  margin: 20px;
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid $border-color;
-}
-
-.board-column h3 {
-  margin-top: 0;
-}
-
-// Всплывающее окно
+// Popup
 .popup {
   position: fixed;
   top: 0;
@@ -120,55 +250,100 @@ th {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  
+  .popup-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+      width: 400px;
+      position: relative;
+      
+      .close-popup {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          font-size: 24px;
+          cursor: pointer;
+      }
+      
+      input {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+      }
+      
+      .status-buttons {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          
+          button {
+              padding: 10px;
+              border: none;
+              border-radius: 5px;
+              flex-grow: 1;
+              margin-right: 10px;
+              cursor: pointer;
+              
+              &:last-child {
+                  margin-right: 0;
+              }
+          }
+      }
+      
+      #apply-changes, #delete-task {
+          padding: 10px;
+          width: 100%;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+      
+      #apply-changes {
+          background-color: #f86f39;
+          color: white;
+          margin-bottom: 10px;
+      }
+      
+      #delete-task {
+          background-color: #ccc;
+      }
+  }
 }
 
-.popup-content {
+// Footer
+// footer {
+//   position: absolute;
+//   bottom: 0;
+//   width: 100%;
+//   padding: 60px 60px 40px 60px;
+//   gap: 48px;
+//   border-radius: 48px 48px 0px 0px;
+//   opacity: 1;
+
+//   background: rgba(187, 184, 182, 1);
+// }
+
+footer {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid $border-color;
-  width: 400px;
-}
-
-.close-popup {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-#edit-task-input {
+  bottom: 0;
   width: 100%;
-  height: 30px;
-  padding: 10px;
-  border: 1px solid $border-color;
-}
-
-.status-buttons {
-  margin-top: 20px;
-}
-
-.status-buttons button {
-  margin-right: 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: $primary-color;
+  height: 40px;
+  background: rgba(187, 184, 182, 1);
   color: #fff;
-  cursor: pointer;
-}
+  text-align: center;
 
-#apply-changes, #delete-task {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: $primary-color;
-  color: #fff;
-  cursor: pointer;
+  padding: 0px 0px 60px 0px;
+  border-radius: 48px 48px 0px 0px;
+  gap: 48px;
+  opacity: 1;
+
+  margin: 0;
 }
